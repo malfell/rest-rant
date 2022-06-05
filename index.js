@@ -7,6 +7,9 @@ const express = require('express');
 //initialize the app object
 const app = express();
 
+//imports the router
+app.use('/places', require('./controllers/places'))
+
 //make homepage route
 app.get('/', (req, rest) => {
     res.send('Hello world')
