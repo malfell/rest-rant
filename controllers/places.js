@@ -1,11 +1,20 @@
-//expresses the router. This will hold all the routes.
-const router = require('express').Router();
+// //expresses the router. This will hold all the routes.
+// const router = require('express').Router();
 
-//index page
-//the GET route will eventually show a list of all places
+// //index page
+// //the GET route will eventually show a list of all places
+// router.get('/', (req, res) => {
+//     res.send('GET /places')
+// })
+
+// //exports the router
+// module.exports = router;
+
+const router = require('express').Router()
+
 router.get('/', (req, res) => {
-    res.send('GET / places')
+    res.send('GET /places')
 })
 
-//exports the router
-module.exports = router;
+module.exports = router
+
