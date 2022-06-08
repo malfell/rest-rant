@@ -7,12 +7,19 @@ const express = require('express');
 //initialize the app object
 const app = express();
 
+//defines the view engine
+app.set('view engine', 'jsx');
+app.engine('jsx', require('express-react-views').createEngine())
+
 //imports the router
 app.use('/places', require('./controllers/places'))
 
 //make homepage route
 app.get('/', (req, res) => {
-    res.send('Hello world')
+    //res.send is changed to res.render to render the view
+    //home view specifically. No need to specify the views folder when
+    //calling a render method. Render already knows to look in the views folder.
+    res.render('home')
 })
 
 //wildcard route that directs to 404
