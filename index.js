@@ -26,9 +26,12 @@ app.get('/', (req, res) => {
 //this route MUST be on the bottom or it will override other pages!!
 app.get('*', (req, res) => {
     //chain .status(404) after res to have an official 404 call
-    res.status(404).send(`
-        <h1>404 Page</h1>
-    `)
+    // res.status(404).send(`
+    //     <h1>404 Page</h1>
+    // `)
+    
+    //switch to res.render
+    res.render('error404');
 })
 
 //listen for connections
