@@ -26,3 +26,4 @@ Places
 | state | string |
 | cuisines | string |
 | pic | string |
+
