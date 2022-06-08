@@ -17,5 +17,5 @@ function error404 () {
 
 }
 
-//import error404 function
+//export error404 function
 module.exports = error404;

@@ -16,5 +16,5 @@ function home () {
     )
 }
 
-//imports home function
+//exports home function
 module.exports = home
