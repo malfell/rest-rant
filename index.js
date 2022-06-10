@@ -1,3 +1,4 @@
+//Modules and Globals
 //configure .env file
 require('dotenv').config();
 
@@ -7,10 +8,15 @@ const express = require('express');
 //initialize the app object
 const app = express();
 
+//Express Settings
 //defines the view engine
+app.set('views', __dirname + '/views') //is this needed?
 app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine())
+//static folder
+app.use(express.static('public'));
 
+//Controllers and Routes
 //imports the router
 app.use('/places', require('./controllers/places'))
 
