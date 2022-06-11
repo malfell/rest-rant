@@ -11,13 +11,14 @@ function index(data) {
         return (
             <div className='col-sm-6'>
                 <h2>{place.name}</h2>
-                <p className='text-center'>
+                {/* Text was centered right in the example */}
+                <p className='text-right'>
                     {place.cuisines}
                 </p>
                 <div>
                     <img src={place.pic} alt={place.name}></img>
                 </div>
-                <p className='text-center'>
+                <p className='text-right'>
                     Located in {place.city}, {place.state}
                 </p>
                 

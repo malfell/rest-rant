@@ -9,7 +9,7 @@ function home () {
         // wraps home code in component from Def function
         <Def>
             <main>
-                <h1>HOME</h1>
+                <h1>Rest-RANT</h1>
                 {/* Fruit Drink Image */}
                 <div>
                     <img src='/images/chia-fruit-drink.jpg' alt='Chia Fruit Shake'/>
