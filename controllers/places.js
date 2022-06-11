@@ -27,6 +27,23 @@ router.get('/', (req, res) => {
     res.render('places/index', { places })
 })
 
+//NEW Route
+router.get('/new', (req, res) => {
+    res.render('places/new')
+})
+
+// SHOW
+// IF CODE GOES WRONG, SOMETHING LIKE THIS IS NEEDED PROBABLY
+// breads.get('/:arrayIndex', (req, res) => {
+//     if (Bread[req.params.arrayIndex]) {
+//       res.render('Show', {
+//         bread:Bread[req.params.arrayIndex]
+//       })
+//     } else {
+//       res.render('404')
+//     }
+//   })
+
 //exports the router
 module.exports = router;
 
