@@ -16,9 +16,15 @@ app.engine('jsx', require('express-react-views').createEngine())
 //static folder
 app.use(express.static('public'));
 
+//body parser for decrypting data (like usernames)
+//needs to go ABOVE the routers or you get undefined :(
+app.use(express.urlencoded( {extended: true }));
+
 //Controllers and Routes
 //imports the router
 app.use('/places', require('./controllers/places'))
+
+
 
 //make homepage route
 app.get('/', (req, res) => {

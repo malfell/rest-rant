@@ -50,7 +50,8 @@ router.get('/new', (req, res) => {
 //IF SOMETHING GOES WRONG, COME BACK HERE!!! 
 //Refer to Rest-Rant Part 5, end of step 3
 router.post('/', (req, res) => {
-    res.send('POST /places stub')
+    console.log(req.body)
+    res.send('POST /places')
   })
 
 //exports the router
