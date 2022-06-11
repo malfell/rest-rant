@@ -1,6 +1,8 @@
 //expresses the router. This will hold all the routes.
 const router = require('express').Router();
 
+
+
 //index page
 //the GET route will eventually show a list of all places
 router.get('/', (req, res) => {
@@ -43,6 +45,13 @@ router.get('/new', (req, res) => {
 //       res.render('404')
 //     }
 //   })
+
+//CREATE
+//IF SOMETHING GOES WRONG, COME BACK HERE!!! 
+//Refer to Rest-Rant Part 5, end of step 3
+router.post('/', (req, res) => {
+    res.send('POST /places stub')
+  })
 
 //exports the router
 module.exports = router;
