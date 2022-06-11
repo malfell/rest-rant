@@ -18,7 +18,9 @@ function Def (html) {
             <body>
                 {html.children}
             </body>
-
+            <footer>
+                <p id='footerText'><b>This is a footer test.</b> It can have links! Except it doesn't now. It's just a sticky footer.</p>
+            </footer>
         </html>
     );
 

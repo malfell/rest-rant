@@ -7,3 +7,13 @@ img {
     width: 25em;
     height: auto;
 }
+
+footer {
+  height: 40px;
+  background-color: rgb(36, 60, 101);
+  margin-top: 1em;
+}
+
+#footerText {
+  color: white;
+}
