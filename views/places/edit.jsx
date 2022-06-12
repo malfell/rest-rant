@@ -7,7 +7,8 @@ function edit_form (data) {
           <main>
             <h1>Edit Place</h1>
             {/* form info will be sent to /places upon edit */}
-            <form method='POST' action='/places/${data.id}?_method=PUT'>
+            {console.log(data)}
+            <form method='POST' action={`/places/${data.id}?_method=PUT`}>
                 {/* PLACE NAME */}
                 {/* Remember className instead of class for jsx */}
 
@@ -25,17 +26,33 @@ function edit_form (data) {
                     {/* PLACE PICTURE */}
                     <div className='form-group col-sm-6'>
                         <label htmlFor='pic'>Place Picture</label>
-                        <input className='form-control' type='url' id='pic' name='pic' />
+                        <input 
+                        className='form-control' 
+                        type='url' 
+                        id='pic' 
+                        name='pic' 
+                        value={data.place.pic}
+                        />
                     </div>
                     {/* CITY */}
                     <div className='form-group col-sm-6'>
                         <label htmlFor='city'>City</label>
-                        <input className='form-control' id='city' name='city' />
+                        <input className='form-control' 
+                        id='city' 
+                        name='city' 
+                        value={data.place.city}
+                        />
                     </div>
                     {/* STATE */}
                     <div className='form-group col-sm-6'>
                         <label htmlFor='state'>State</label>
-                        <input className='form-control' list='state-list' id='state' name='state' />
+                        <input 
+                        className='form-control' 
+                        list='state-list' 
+                        id='state' 
+                        name='state' 
+                        value={data.place.state}
+                        />
                             <datalist id="state-list">
                                 <option value="AK">Alaska</option>
                                 <option value="AL">Alabama</option>
@@ -91,7 +108,12 @@ function edit_form (data) {
                     {/* CUISINES */}
                     <div className='form-group col-sm-6'>
                         <label htmlFor='cuisines'>Cuisines</label>
-                        <input className='form-control' id='cuisines' name='cuisines' required />
+                        <input 
+                        className='form-control' 
+                        id='cuisines' 
+                        name='cuisines' 
+                        value={data.place.cuisines}
+                        required />
                     </div>
                 </div>
 
