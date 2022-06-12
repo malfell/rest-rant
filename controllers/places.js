@@ -1,10 +1,12 @@
-
+//Require method-override to delete and edit stuff
+const methodOverride = require('method-override');
+//expresses the router. This will hold all the routes.
+const router = require('express').Router();
 
 //imports places model
 const places = require('../models/places.js')
 
-//expresses the router. This will hold all the routes.
-const router = require('express').Router();
+router.use(methodOverride('_method'));
 
 //index page
 //the GET route will eventually show a list of all places
@@ -63,6 +65,25 @@ router.get('/:id', (req, res) => {
     }
     
 })
+
+//DELETE ROUTE
+router.delete('/:id', (req, res) => {
+    let id = Number(req.params.id)
+    if (isNaN(id)) {
+        res.render('error404')
+    }
+    else if (!places[id]) {
+        res.render('error404')
+    }
+    else {
+        // Deletes method from array
+        places.splice(id, 1)
+        // res.send('STUB DELETE places/:id')
+        // Redirect user to index page
+        res.redirect('/places')
+    }
+})
+
 
 //exports the router
 module.exports = router;
