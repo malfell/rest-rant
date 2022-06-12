@@ -7,10 +7,15 @@ const Def = require('../default');
 //accepts data paramter from index
 function index(data) {
     //formats data into HTML so page can display it
-    let placesFormatted = data.places.map((place) => {
+    let placesFormatted = data.places.map((place, index) => {
         return (
             <div className='col-sm-6'>
-                <h2>{place.name}</h2>
+                <h2>
+                    <a href={`/places/${index}`}>
+                        {place.name}
+                    </a>
+                    
+                </h2>
                 {/* Text was centered right in the example */}
                 <p className='text-right'>
                     {place.cuisines}

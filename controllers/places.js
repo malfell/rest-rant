@@ -46,6 +46,24 @@ router.get('/new', (req, res) => {
     res.render('places/new')
 })
 
+// SHOW Route
+router.get('/:id', (req, res) => {
+    // id must equal a number
+    let id = Number(req.params.id)
+    //if not a number, then error404
+    if (isNaN(id)) {
+        res.render('error404')
+    }
+    //if number that is NOT in array, then error404
+    else if (!places[id]) {
+        res.render('error404')
+    }
+    else {
+      res.render('places/show', { place: places[id] })  
+    }
+    
+})
+
 //exports the router
 module.exports = router;
 
