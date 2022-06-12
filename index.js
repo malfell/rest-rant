@@ -1,9 +1,10 @@
 //Modules and Globals
 //configure .env file
 require('dotenv').config();
-
 //Require needed modules
 const express = require('express');
+//Require method-override to delete and edit stuff
+const methodOverride = require('method-override');
 
 //initialize the app object
 const app = express();
@@ -15,10 +16,12 @@ app.set('view engine', 'jsx');
 app.engine('jsx', require('express-react-views').createEngine())
 //static folder
 app.use(express.static('public'));
-
 //body parser for decrypting data (like usernames)
 //needs to go ABOVE the routers or you get undefined :(
 app.use(express.urlencoded( {extended: true }));
+//specieis _method as keyword to change methods when needed
+//for delete/edit
+app.use(methodOverride('_method'));
 
 //Controllers and Routes
 //imports the router
