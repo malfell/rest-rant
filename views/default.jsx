@@ -4,6 +4,7 @@
 //import react
 const React = require('react');
 
+
 //stub function for HTML template
 function Def (html) {
     // return's first paranthesis must always share the same line
@@ -12,9 +13,10 @@ function Def (html) {
             <head>
                 <title>Rest-RANT</title>
                 {/* Bootstrap CDN link */}
-                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"></link>
+                <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossOrigin="anonymous"/>
                 <link rel='stylesheet' href='/css/style.css'/>
-            </head>
+
+               </head>
             <body>
                 {/* NAV BAR */}
                 <nav>
@@ -34,6 +36,7 @@ function Def (html) {
                 {html.children}
             </body>
             <footer>
+                
                 <p id='footerText'><b>This is a footer test.</b> It can have links! Except it doesn't now. It's just a sticky footer.</p>
             </footer>
         </html>
