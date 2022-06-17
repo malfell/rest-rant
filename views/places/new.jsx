@@ -18,6 +18,11 @@ function newForm () {
                         <label htmlFor='name'>Place Name</label>
                         <input className='form-control' id='name' name='name' required />
                     </div>
+                    {/* FOUNDED DATE */}
+                    <div className='form-group'>
+                        <label for='founded'>Founded Year</label>
+                        <input className='form-control' id='founded' name='founded'/>
+                    </div>
                     {/* PLACE PICTURE */}
                     <div className='form-group'>
                         <label htmlFor='pic'>Place Picture</label>
