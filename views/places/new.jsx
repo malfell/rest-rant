@@ -3,13 +3,25 @@ const React = require('react');
 const Def = require('../default');
 
 //function for new form
-function newForm () {
+//pass in data to create error message
+function newForm (data) {
+    // ERROR MESSAGE
+    let message = ''
+        if(data.message) {
+            message = (
+                <h4 className='alert-danger'>
+                    {data.message}
+                </h4>
+            )
+        }
+
     return (
         // Def component as wrapper again
         <Def>
             <main>
                 <h1>Add a New Place</h1>
-                
+                {/* error message will only be displayed if there's error */}
+                {message}
                 {/* form info will be sent to /places */}
                 <form method='POST' action='/places'>
                     {/* PLACE NAME */}

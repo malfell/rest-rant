@@ -24,10 +24,24 @@ router.post('/', (req, res) => {
   .then( () => {
     res.redirect('/places')
   })
-  //redirects to 404 page
+    //creates error message if any
   .catch( err => {
-    console.log('err', err)
-    res.render('error404')
+    if (err && err.name == 'ValidationError'){
+      let message = 'Validation Error: '
+      
+      //array of error messages if there's many
+      for(var field in err.errors){
+        message += `${field} was ${err.errors[field].value}.`
+        message += ` ${err.errors[field].message}`
+      }
+      console.log('Validation error message', message)
+
+      res.render('places/new', { message })
+    }
+    //redirects to 404 page
+    else {
+      res.render('error404')
+    }
   })
 })
 
