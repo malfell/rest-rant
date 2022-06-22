@@ -1,3 +1,7 @@
+//require dotenv package
+//done to ensure we can use value of MONGO_URI environment variable
+//needs to be .config() not .require()--assignment instructions wrong
+require('dotenv').config()
 // require mongoose
 const mongoose = require('mongoose')
 

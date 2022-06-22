@@ -9,6 +9,7 @@ function newForm () {
         <Def>
             <main>
                 <h1>Add a New Place</h1>
+                
                 {/* form info will be sent to /places */}
                 <form method='POST' action='/places'>
                     {/* PLACE NAME */}
