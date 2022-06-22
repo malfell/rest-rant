@@ -9,11 +9,15 @@ const placeSchema = new mongoose.Schema({
     //id field is not needed--Mongo creates it automatically
     //fields can be required or have default values
     name: { type: String, required: true },
-    pic: String,
+    pic: {type: String, default: 'http://placekitten.com/350/350'},
     cuisines: { type: String, required: true },
     city: { type: String, default: 'Anytown' },
     state: { type: String, default: 'USA' },
-    founded: Number
+    founded: {
+        type: Number,
+        min: [1673, 'Surely not that old?!'],
+        max: [new Date().getFullYear(), 'Hey, this year is in the future! Dummy!']
+    }
 })
 
 //custom methods

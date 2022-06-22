@@ -22,7 +22,14 @@ function newForm () {
                     {/* FOUNDED DATE */}
                     <div className='form-group'>
                         <label for='founded'>Founded Year</label>
-                        <input className='form-control' id='founded' name='founded'/>
+                        <input 
+                            //only numbers allowed!
+                            type='number'
+                            className='form-control' 
+                            id='founded' 
+                            name='founded'
+                            //checks date to be a year
+                            value={new Date().getFullYear} />
                     </div>
                     {/* PLACE PICTURE */}
                     <div className='form-group'>
