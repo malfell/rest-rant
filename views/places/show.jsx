@@ -96,9 +96,54 @@ function show (data) {
 
             {/* COMMENTS */}
             <hr />
+            {/* ORGANIZE COMMENTS BETTER */}
             <div>
                 <h2>Comments</h2>
                 {comments}
+            </div>
+            {/* ADD NEW COMMENT FORM */}    
+            <div>
+                <form method='POST' action={`/places/${data.place.id}/comment`}>
+                    {/* CONTENT */}
+                    <div className='form-group'>
+                        <label htmlFor='content'>Content</label>
+                        <br/>
+                        <textarea rows='3' cols='150' name='content' 
+                        id='content' placeholder='Begin rant or rave...'>
+                        </textarea>
+                    </div>                    
+                    <br/>
+                    <div className='row'>
+                        {/* AUTHOR */}
+                        <div className='form-group col'>
+                            <label htmlFor='author'>Author</label>
+                            <input className='form-control' type='text' id='author' name='author' />
+                        </div>
+                        {/* SPACING IS WEIRD HERE */}
+                        {/* STAR RATING */}
+                        <div className='form-group col'>
+                            <label htmlFor='stars'>Star Rating</label>
+                            <input type='range' 
+                                    id='stars' 
+                                    name='stars' 
+                                    step='0.5' 
+                                    min='0' max='5'></input>
+                        </div>
+                        {/* RANT */}
+                        <div className='form-group col'>
+                            <label htmlFor='rant'>Rant? </label>
+                            <input type='checkbox' id='rant' name='rant' />
+                        </div>
+                    </div>
+
+                    
+                    {/* SUBMIT */}
+                    <div>
+                    <input className='btn btn-primary' type='submit' value='Add Comment' />
+                    </div>
+
+                </form>
+
             </div>
             
           </main>

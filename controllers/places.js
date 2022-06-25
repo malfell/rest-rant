@@ -79,6 +79,36 @@ router.get('/:id/edit', (req, res) => {
   res.send('GET edit form stub')
 })
 
+// COMMENTS
+router.post('/:id/comment', (req, res) => {
+  // checks if checkbox is checked
+  req.body.rant = req.body.rant ? true: false
+  console.log(req.body)
+  // looks up the place
+  db.Place.findById(req.params.id)
+    .then(place => {
+      //create comment
+      db.Comment.create(req.body)
+      .then(comment => {
+        //save comment id to places array
+          place.comments.push(comment.id)
+          place.save()
+          .then(() => {
+            res.redirect(`/places/${req.params.id}`)
+          })
+          .catch(err => {
+              res.render('error404')
+          })
+      })
+    })
+    // catch errors
+    .catch( err => {
+      res.render('error404')
+    })
+  // res.send('GET /places/:id/comment stub')
+})
+
+// RANT ROUTE
 router.post('/:id/rant', (req, res) => {
   res.send('GET /places/:id/rant stub')
 })
