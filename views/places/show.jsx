@@ -20,14 +20,22 @@ function show (data) {
         let sumRatings = data.place.comments.reduce((tot, c) => {
             return tot + c.stars
         }, 0)
-        let averageRating = sumRatings / data.place.comments.length
+        {/* Math.round to make it a whole number */}
+        let averageRating = Math.round(sumRatings / data.place.comments.length)
+        // For loop for showing the correct number of stars
+        //holds the stars
+        let stars = ''
+        //for loop
+        for(let i = 0; i < averageRating; i++){
+            stars += '⭐'
+        }
         rating = (
             <h3>
-                {/* Math.round to make it a whole number */}
-                {Math.round(averageRating)} stars
+                {/*Shows the number of star emojis*/}
+                {stars} stars
             </h3>
         )
-        // Shows comments
+        // Shows comments ⭐
         comments = data.place.comments.map(c => {
             return (
                 // gives rants a border and places them in small columns
