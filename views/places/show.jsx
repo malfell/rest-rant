@@ -2,16 +2,36 @@ const React = require('react')
 const Def = require('../default')
 
 function show (data) {
+    // Comments Variable
     let comments = (
         <h3 className='inactive'>
             No comments yet!
         </h3>
     )
+    // Rating Variable
+    let rating = (
+        <h3 className='inactive'>
+            Not yet rated
+        </h3>
+    )
     // Logic for showing comments
     if(data.place.comments.length) {
+        // Calculations for average rating
+        let sumRatings = data.place.comments.reduce((tot, c) => {
+            return tot + c.stars
+        }, 0)
+        let averageRating = sumRatings / data.place.comments.length
+        rating = (
+            <h3>
+                {/* Math.round to make it a whole number */}
+                {Math.round(averageRating)} stars
+            </h3>
+        )
+        // Shows comments
         comments = data.place.comments.map(c => {
             return (
-                <div className='border'>
+                // gives rants a border and places them in small columns
+                <div className='border col-sm-4'>
                     <h2 className='rant'>{c.rant ? 'Rant! 😡' : 'Rave! 😻'}</h2>
                     <h4>{c.content}</h4>
                     <h3>
@@ -45,8 +65,9 @@ function show (data) {
 
                     {/* RATING */}
                     <div>
-                        <h3>Rating</h3>
-                        <p>Not rated</p>
+                        <h2>Rating</h2>
+                        {rating}
+                        <br/>
                     </div>
 
                     <div>
