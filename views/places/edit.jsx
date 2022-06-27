@@ -8,7 +8,7 @@ function edit_form (data) {
             <h1>Edit Place</h1>
             {/* form info will be sent to /places upon edit */}
             {console.log(data)}
-            <form method='POST' action={`/places/${data.id}?_method=PUT`}>
+            <form method='POST' action={`/places/${data.place.id}?_method=PUT`}>
                 {/* PLACE NAME */}
                 {/* Remember className instead of class for jsx */}
 
@@ -22,6 +22,18 @@ function edit_form (data) {
                         name='name' 
                         value={data.place.name}
                         required />
+                    </div>
+                    {/* FOUNDED DATE */}
+                    <div className='form-group'>
+                        <label for='founded'>Founded Year</label>
+                        <input 
+                            //only numbers allowed!
+                            type='number'
+                            className='form-control' 
+                            id='founded' 
+                            name='founded'
+                            //checks date to be a year
+                            value={data.place.founded} />
                     </div>
                     {/* PLACE PICTURE */}
                     <div className='form-group col-sm-6'>
@@ -119,7 +131,7 @@ function edit_form (data) {
 
 
                 {/* SUBMIT BUTTON */}
-                <input className='btn btn-primary' type='submit' value='Edit Place' />
+                <input className='btn btn-primary' type='submit' value='Update Place' />
 
             </form>
           </main>

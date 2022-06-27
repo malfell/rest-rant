@@ -1,7 +1,14 @@
 //require express and expresses the router
 const router = require('express').Router()
+
 //references the models folder
 const db = require('../models')
+//Require method-override to delete and edit stuff
+const methodOverride = require('method-override');
+
+//use _method as keyword to change methods when needed
+//for delete/edit
+router.use(methodOverride('_method'))
 
 // INDEX
 router.get('/', (req, res) => {
@@ -67,16 +74,45 @@ router.get('/:id', (req, res) => {
   })
 })
 
+// EDITS PLACE BY ID
 router.put('/:id', (req, res) => {
-  res.send('PUT /places/:id stub')
+  // res.send('PUT /places/:id stub')
+  db.Place.findByIdAndUpdate(req.params.id, req.body)
+  .then(() => {
+    res.redirect(`/places/${req.params.id}`)
+  })
+  .catch(err => {
+    console.log('err', err)
+    res.render('error404')
+  })
 })
 
+// DELETE PLACE
 router.delete('/:id', (req, res) => {
-  res.send('DELETE /places/:id stub')
+  // Just there as a stub--not needed anymore (but keeping for future reference)
+  // res.send('DELETE /places/:id stub')
+  db.Place.findByIdAndDelete(req.params.id)
+  .then(place => {
+      res.redirect('/places')
+  })
+  .catch(err => {
+      console.log('err', err)
+      res.render('error404')
+  })
 })
 
+// EDIT PLACE ROUTE
 router.get('/:id/edit', (req, res) => {
-  res.send('GET edit form stub')
+  // keeping that for future reference
+  // res.send('GET edit form stub')
+  //look up place data by ID and send it to edit.jsx view
+  db.Place.findById(req.params.id)
+  .then(place => {
+    res.render('places/edit', { place })
+  })
+  .catch(err => {
+    res.render('error404')
+  })
 })
 
 // COMMENTS
@@ -113,6 +149,7 @@ router.post('/:id/rant', (req, res) => {
   res.send('GET /places/:id/rant stub')
 })
 
+// DELETE ROUTE
 router.delete('/:id/rant/:rantId', (req, res) => {
     res.send('GET /places/:id/rant/:rantId stub')
 })
