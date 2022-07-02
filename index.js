@@ -6,9 +6,19 @@ const express = require('express');
 //Require method-override to delete and edit stuff
 const methodOverride = require('method-override');
 
+const mongoose = require('mongoose')
+
 
 //initialize the app object
 const app = express();
+
+// mongoose can be called anywhere after the required mongoose
+// The first argument that connect takes is the Mongo URI. 
+// The second argument contains optional properties that get rid 
+// of deprecation warnings.
+mongoose.connect(process.env.MONGO_URI, {useNewUrlParser: true, useUnifiedTopology: true}, 
+    () => { console.log('connected to mongo: ', process.env.MONGO_URI) }
+  )
 
 //Express Settings
 //defines the view engine
